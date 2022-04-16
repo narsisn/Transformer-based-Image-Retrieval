@@ -1,1 +1,1 @@
-# Transformer-based-Image-Retrieval-
+# Transformer-based-Image-Retrieval
