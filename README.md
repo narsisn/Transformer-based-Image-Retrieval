@@ -34,4 +34,5 @@ demo.compute_image_embeddings(image_path)
 imgPath = 'path/to/search_iamge.jpeg'
 demo.image_search(imgPath,10)
 ```
+![image](https://user-images.githubusercontent.com/41056415/163726743-bdcdb191-9c11-4258-8a3d-93e51d81ace3.png)
 
