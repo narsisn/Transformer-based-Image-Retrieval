@@ -4,8 +4,7 @@ CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a 
 # Usage 
 
 **Requirement Packages**
-```
-python3.*
+```python
 import sys
 sys.path.append(str(Path('.').absolute().parent))
 
