@@ -3,7 +3,7 @@ CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a 
 
 # Usage 
 
-**Requirement Packages: **
+**Requirement Packages:**
 ```python
 import sys
 sys.path.append(str(Path('.').absolute().parent))
@@ -20,5 +20,18 @@ import glob
 ```python
 config = CLIPConfig.from_pretrained("openai/clip-vit-large-patch14")
 vision_encoder = CLIPVisionModel.from_pretrained('openai/clip-vit-large-patch14', config=config.vision_config)
+```
+**Generate the image embeddings**
+```python
+imgDirectory = '/path/to/image_directory'
+image_path = glob.glob(imgDirectory, recursive=True)
+demo = SNAPDemo(vision_encoder)
+demo.compute_image_embeddings(image_path)
+
+```
+**Run Image Search**
+```python
+imgPath = 'path/to/search_iamge.jpeg'
+demo.image_search(imgPath,10)
 ```
 
