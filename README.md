@@ -3,7 +3,7 @@ CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a 
 
 # Usage 
 
-**Requirement Packages**
+**Requirement Packages: **
 ```python
 import sys
 sys.path.append(str(Path('.').absolute().parent))
@@ -14,3 +14,11 @@ from src import SNAPDemo
 import glob
 
 ```
+
+**Downloading pretrained models**
+
+```python
+config = CLIPConfig.from_pretrained("openai/clip-vit-large-patch14")
+vision_encoder = CLIPVisionModel.from_pretrained('openai/clip-vit-large-patch14', config=config.vision_config)
+```
+
