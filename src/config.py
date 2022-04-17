@@ -1,3 +1,4 @@
+import torch 
 
 IMAGE_SIZE = 224
 MEAN = torch.tensor([0.48145466, 0.4578275, 0.40821073])
