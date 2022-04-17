@@ -36,3 +36,8 @@ demo.image_search(imgPath,10)
 ```
 ![image](https://user-images.githubusercontent.com/41056415/163726743-bdcdb191-9c11-4258-8a3d-93e51d81ace3.png)
 
+![image](https://user-images.githubusercontent.com/41056415/163727541-a298ee65-29dd-4d81-89c1-62f017be9309.png)
+
+![image](https://user-images.githubusercontent.com/41056415/163727595-de74f6f5-9cdd-45b8-9a03-e0a0c0b18dc2.png)
+
+![image](https://user-images.githubusercontent.com/41056415/163727720-ca493aa8-cbe5-4adc-8e96-eb20877a0be3.png)
