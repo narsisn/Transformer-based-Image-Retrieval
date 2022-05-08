@@ -77,5 +77,19 @@ class SNAPDemo:
             ax.imshow(Image.open(match).resize((224, 224)))
             ax.axis("off")
         plt.show()
+    def image_query(self,  image_path: str, top_k=10):
+        """ Search images based on text query
+            Args:
+                image_path (str): image query 
+                top_k (int): number of relevant images 
+        """
+     
+        print(image_path)
+        image = Image.open(image_path)
+        image_embedding = self.image_query_embedding(image)
+        _, indices = self.most_similars(self.image_embeddings_, image_embedding)
 
+        matches = np.array(self.image_paths)[indices][:top_k]
+        return matches
+        
   

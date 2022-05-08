@@ -32,10 +32,13 @@ class evalute:
         return demo
     
     def calc_acc(self,demo):
+        path_prefix = '/home/yazahra/Documents/codes/pinterest_similar_data_crawler/'
         simData = pd.read_csv(self.csv_path)
         for index, row in simData.iterrows():
-            print(row['pin'])
-            # retrived_images = demo.image_query(row['iamge..'],10)
+            print(row['image_path'])
+            retrived_images = demo.image_query(path_prefix + row['image_path'],10)
+            print(retrived_images)
+            break
 
         return acc
 
@@ -46,11 +49,8 @@ def main():
     csv_path = 'csv_files/similar_images.csv'
 
     # image file path
-    image_path = '~/Documents/codes/pinterest_similar_data_crawler/images/Women/***/*.jpg'
-    image_path = glob.glob(image_path, recursive=True)
-    print(image_path)
-    exit(0)
-
+    # image_path = '/home/yazahra/Documents/codes/pinterest_similar_data_crawler/images/Women/**/*.jpg'
+    image_path = '/home/yazahra/Documents/codes/pinterest_similar_data_crawler/images/Women/Clothing/Pants/**/*.jpg'
     # define pretrained model version
     model_source = 'openai'
     model_version = 'clip-vit-large-patch14'
@@ -63,8 +63,8 @@ def main():
     model = evl.load_model()
 
     # Image Embedding 
-    demo = extract_features(model)
-
+    demo = evl.extract_features(model)
+    
     # claculate the accuracy 
     acc = evl.calc_acc(demo)
 
