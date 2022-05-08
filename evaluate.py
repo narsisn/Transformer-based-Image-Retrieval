@@ -35,8 +35,9 @@ class evalute:
         path_prefix = '/home/yazahra/Documents/codes/pinterest_similar_data_crawler/'
         simData = pd.read_csv(self.csv_path)
         for index, row in simData.iterrows():
-            print(row['image_path'])
-            retrived_images = demo.image_query(path_prefix + row['image_path'],10)
+            image_name = row['image_list'].replace('[','').replace(']','').replace("'",'').split(',')[0]
+            image_dir = row['image_path'] + '/'
+            retrived_images = demo.image_query(path_prefix + image_dir + image_name,10)
             print(retrived_images)
             break
 
