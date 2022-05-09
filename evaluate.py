@@ -45,17 +45,20 @@ class evalute:
         return demo
     
     def calc_acc(self,demo):
-        path_prefix = ' /Documents/codes/pinterest_similar_data_crawler/'
+        path_prefix = '/home/yazahra/Documents/codes/pinterest_similar_data_crawler/'
         simData = pd.read_csv(self.csv_path)
         acc_list = []
         for index, row in simData.iterrows():
             if row['gender'] == self.gender and row['product_category'] == self.pro_cat and row['main_category'] == self.main_cat:
                 image_name = row['image_list'].replace('[','').replace(']','').replace("'",'').split(',')[0]
                 image_dir = row['image_path'] + '/'
-                if 'jpg' in image_name:
-                    retrived_images = demo.image_query(path_prefix + image_dir + image_name,self.k_n)
-                    acc = self.acc_per_image(retrived_images,row['pin'],path_prefix + image_dir)
-                    acc_list.append(acc)
+                try:
+                    if 'jpg' in image_name:
+                        retrived_images = demo.image_query(path_prefix + image_dir + image_name,self.k_n)
+                        acc = self.acc_per_image(retrived_images,row['pin'],path_prefix + image_dir)
+                        acc_list.append(acc)
+                except:
+                    continue
         return mean(acc_list)
 
 def main():
@@ -64,13 +67,13 @@ def main():
     csv_path = 'csv_files/similar_images.csv'
 
     # gender and type
-    gender = 'Women'
+    gender = 'Men'
     pro_cat = 'Clothing'
-    main_cat = 'Pants'
+    main_cat = 'Activewear'
     k_n = 10
 
     # image file path
-    image_path = ' /Documents/codes/pinterest_similar_data_crawler/images/' + gender + '/' + pro_cat + '/' +  main_cat + '/**/*.jpg'
+    image_path = '/home/yazahra/Documents/codes/pinterest_similar_data_crawler/images/' + gender + '/' + pro_cat + '/' +  main_cat + '/**/*.jpg'
 
     # define pretrained model version
     model_source = 'openai'
