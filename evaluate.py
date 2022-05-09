@@ -42,7 +42,7 @@ class evalute:
         return demo
     
     def calc_acc(self,demo):
-        path_prefix = '/home/yazahra/Documents/codes/pinterest_similar_data_crawler/'
+        path_prefix = '/Documents/codes/pinterest_similar_data_crawler/'
         simData = pd.read_csv(self.csv_path)
         acc_list = []
         for index, row in simData.iterrows():
@@ -65,8 +65,8 @@ def main():
     pro_cat = 'Clothing'
 
     # image file path
-    # image_path = '/home/yazahra/Documents/codes/pinterest_similar_data_crawler/images/' + gender + '/' + pro_cat + '/**/*.jpg'
-    image_path = '/home/yazahra/Documents/codes/pinterest_similar_data_crawler/images/Women/Clothing/Pants/**/*.jpg'
+    # image_path = '/Documents/codes/pinterest_similar_data_crawler/images/' + gender + '/' + pro_cat + '/**/*.jpg'
+    image_path = '/Documents/codes/pinterest_similar_data_crawler/images/Women/Clothing/Pants/**/*.jpg'
     # define pretrained model version
     model_source = 'openai'
     model_version = 'clip-vit-large-patch14'
