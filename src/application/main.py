@@ -9,6 +9,7 @@ from transformers import default_data_collator
 from .utils import VisionDataset, TextDataset
 
 
+
 class SNAPDemo:
     def __init__(self, vision_encoder,
                  batch_size: int = 32, max_len: int = 64, device='cuda'):
@@ -37,16 +38,16 @@ class SNAPDemo:
                 image_paths (list[str]): An image database
         """
         self.image_paths = image_paths
+
         datalodear = DataLoader(VisionDataset(
-            image_paths=image_paths), batch_size=self.batch_size)
+            image_paths=self.image_paths), batch_size=self.batch_size)
         embeddings = []
         with torch.no_grad():
             for images in tqdm(datalodear, desc='computing image embeddings'):
-                try:
-                    image_embedding = self.vision_encoder(
-                        pixel_values=images.to(self.device)).pooler_output
-                except:
-                    continue
+                  
+                image_embedding = self.vision_encoder(
+                            pixel_values=images.to(self.device)).pooler_output
+                    
                 embeddings.append(image_embedding)
         self.image_embeddings_ =  torch.cat(embeddings)
 

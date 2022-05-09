@@ -92,6 +92,7 @@ def main():
     # claculate the accuracy 
     acc = evl.calc_acc(demo)
 
+    # find . -maxdepth 1 -type f -size 0 -delete
     print(f'Accuracy = {acc :.4f}')
 
 if __name__ == "__main__":
