@@ -42,8 +42,11 @@ class SNAPDemo:
         embeddings = []
         with torch.no_grad():
             for images in tqdm(datalodear, desc='computing image embeddings'):
-                image_embedding = self.vision_encoder(
-                    pixel_values=images.to(self.device)).pooler_output
+                try:
+                    image_embedding = self.vision_encoder(
+                        pixel_values=images.to(self.device)).pooler_output
+                except:
+                    continue
                 embeddings.append(image_embedding)
         self.image_embeddings_ =  torch.cat(embeddings)
 
