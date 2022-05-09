@@ -14,7 +14,7 @@ from transformers import CLIPVisionModel, RobertaModel, AutoTokenizer,CLIPConfig
 
 
 class evalute:
-    def __init__(self, csv_path="", model_path="" ,image_path="",gender="",pro_cat="",main_cat="",k_n=20):
+    def __init__(self, csv_path="", model_path="" ,image_path="",gender="",pro_cat="",main_cat="",k_n=10):
         self.csv_path = csv_path
         self.model_path = model_path
         self.image_path = image_path
@@ -33,7 +33,6 @@ class evalute:
         img_cnt = len(glob.glob(path+'/*.jpg' ,recursive=True))
         correct_cnt = sum(pin in s for s in list(retrived_images))
         acc = correct_cnt/self.k_n
-        print("*****************accuracy",acc)
         return acc 
 
     def extract_features(self, model):
