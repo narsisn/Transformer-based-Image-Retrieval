@@ -29,11 +29,14 @@ class evalute:
         return vision_encoder
 
     def acc_per_image(self,retrived_images,pin,path):
-        
+        print(pin, path)
+        print(retrived_images)
+        print('##################################')
         img_cnt = len(glob.glob(path+'/*.jpg' ,recursive=True))
         correct_cnt = sum(pin in s for s in list(retrived_images))
         # acc = correct_cnt/img_cnt
         acc = correct_cnt/self.k_n
+        print("*****************accuracy",acc)
         return acc 
 
     def extract_features(self, model):
@@ -49,7 +52,7 @@ class evalute:
         simData = pd.read_csv(self.csv_path)
         acc_list = []
         for index, row in simData.iterrows():
-            if row['gender'] == self.gender and row['product_category'] == self.pro_cat and row['main_category'] == 'Pants':
+            if row['gender'] == self.gender and row['product_category'] == self.pro_cat: #and row['main_category'] == 'Pants':
                 image_name = row['image_list'].replace('[','').replace(']','').replace("'",'').split(',')[0]
                 image_dir = row['image_path'] + '/'
                 if 'jpg' in image_name:
@@ -69,8 +72,8 @@ def main():
     k_n = 10
 
     # image file path
-    # image_path = ' /Documents/codes/pinterest_similar_data_crawler/images/' + gender + '/' + pro_cat + '/**/*.jpg'
-    image_path = ' /Documents/codes/pinterest_similar_data_crawler/images/Women/Clothing/Pants/**/*.jpg'
+    image_path = ' /Documents/codes/pinterest_similar_data_crawler/images/' + gender + '/' + pro_cat + '/**/*.jpg'
+    # image_path = ' /Documents/codes/pinterest_similar_data_crawler/images/Women/Clothing/Pants/**/*.jpg'
     # define pretrained model version
     model_source = 'openai'
     model_version = 'clip-vit-large-patch14'
