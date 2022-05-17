@@ -1,5 +1,6 @@
 # Transformer-based-Image-Retrieval
-CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a variety of (image, text) pairs. In this repository I have used the pretained CLIP models (https://huggingface.co/openai/clip-vit-large-patch14) for visual search downstream task. 
+
+CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a variety of (image, text) pairs. In this project, I have used the pretrained CLIP models (https://huggingface.co/openai/clip-vit-large-patch14) for the visual search downstream tasks. 
 
 # Usage 
 
